@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    container_name: dedaloai_badge_ng_example
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dedalo-ng-demo/dist/dedalo-ng-demo/browser:/usr/share/nginx/html:ro
