@@ -17,7 +17,12 @@ export class DedaloAIClientScript implements OnInit {
   private dedaloai_scriptUrl = environment.dedaloai_scriptUrl;
   private dedaloai_apiKey = environment.dedaloai_apiKey;
   private dedaloai_projectId = environment.dedaloai_projectId;
-
+  private dedaloai_options = {
+    badgeOptions: {
+      draggable: true,
+      position: "bl"
+    }
+  };
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
@@ -26,6 +31,7 @@ export class DedaloAIClientScript implements OnInit {
     script.src = this.dedaloai_scriptUrl;
     script.setAttribute('data-apikey', this.dedaloai_apiKey);
     script.setAttribute('data-projectid', this.dedaloai_projectId);
+    script.setAttribute('data-options', JSON.stringify(this.dedaloai_options));
     script.type = 'text/javascript';
     script.defer = true;
 
